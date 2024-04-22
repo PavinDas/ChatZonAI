@@ -2,6 +2,7 @@ import 'package:chatzon_ai/constants/consts.dart';
 import 'package:chatzon_ai/constants/global.dart';
 import 'package:chatzon_ai/constants/images.dart';
 import 'package:chatzon_ai/screens/home_screen.dart';
+import 'package:chatzon_ai/widgets/custom_loading.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -13,12 +14,13 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
+
+  //! Make 2.5 seconds delay on splash Screen and navigate to Home Screen
   void initState() {
-    // TODO: implement initState
     super.initState();
     Future.delayed(
-      Duration(
-        seconds: 2,
+      const Duration(
+        milliseconds: 2500,
       ),
       () {
         Navigator.of(context).pushReplacement(
@@ -36,18 +38,13 @@ class _SplashScreenState extends State<SplashScreen> {
     mq = MediaQuery.sizeOf(context);
 
     return Scaffold(
-      body: Center(
+      //! Body
+      body: SizedBox(
+        width: double.maxFinite,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Spacer(),
-            Card(
-              elevation: 0,
-              child: Image.asset(
-                icon,
-                width: mq.width * .45,
-              ),
-            ),
+            //* Welcome text
             const Spacer(),
             const Text(
               appName,
@@ -57,9 +54,21 @@ class _SplashScreenState extends State<SplashScreen> {
                 color: mobileChatBoxColor,
               ),
             ),
-            SizedBox(
-              height: mq.height * .1,
+
+            //* App logo
+            const Spacer(),
+            Card(
+              elevation: 0,
+              child: Image.asset(
+                icon,
+                width: mq.width * .45,
+              ),
             ),
+
+            //* Loading animation
+            const Spacer(),
+            const CustomLoading(),
+            const Spacer(),
           ],
         ),
       ),

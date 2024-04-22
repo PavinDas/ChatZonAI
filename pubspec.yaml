@@ -31,17 +31,10 @@ dependencies:
   cupertino_icons: ^1.0.6
   flutter:
     sdk: flutter
-
-    #For changing app icon
   icons_launcher: ^2.1.7
+  lottie: ^3.1.0
 
 dev_dependencies:
-
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
   flutter_lints: ^3.0.0
   flutter_test:
     sdk: flutter
@@ -60,6 +53,7 @@ flutter:
   assets:
     - assets/
     - assets/images/
+    - assets/lottie/
     - assets/fonts/
 
   # An image asset can refer to one or more resolution-specific "variants", see
