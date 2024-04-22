@@ -32,7 +32,8 @@ const appName = "ChatZon AI",
     selectCountry = "Select Country",
     privacyPolicy = "Privacy Policy",
     termsCond = "Terms and Condition",
-    privacyAndPolicy = """Read our Privacy Policy. Tap "Agree and continue" to \naccept the Terms of Service.""",
+    privacyAndPolicy =
+        """Read our Privacy Policy. Tap "Agree and continue" to \naccept the Terms of Service.""",
     agreeAndContinue = "Agree and continue",
     alreadyHaveAcc = "Already have an account? ",
     buyYourFav = "Buy Your Favorites",
@@ -66,6 +67,7 @@ const appName = "ChatZon AI",
     share = "Share",
     save = "Save",
     next = "Next",
+    finish = "Finish",
 
     //! Account Strings
     myAccount = "My Account",
@@ -73,4 +75,11 @@ const appName = "ChatZon AI",
     favorites = "Favorites",
     yourFavoriteIsEmpty = "Your Favorites is Empty",
     account = "Account",
-    pageDoesntExist = "Page doesn't exist";
+    pageDoesntExist = "Page doesn't exist",
+
+    //! Chat Strings
+    askAnything = "Ask me Anything",
+    imgToReality = "Imagination to Reality",
+    imgAnything = "Just imagine anything & let me know, I will create something wonderful for you",
+    askMeFrnd =
+        "I can be your best friend & You can ask me anything \nI will help you!";
