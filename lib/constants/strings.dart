@@ -1,12 +1,12 @@
 //! Main Strings
 
-const appName = "ChatZon",
+const appName = "ChatZon AI",
     credits = "@pavin__das",
-    appversion = "Version 2.0",
+    appversion = "Version 1.0",
 
 //! Home Strings
     welcome = "Welcome",
-    welcomToApp = "Welcome to ChatZon",
+    welcomToApp = "Welcome to ChatZon AI",
     name = "Name",
     nameHint = "Your Name",
     email = "Email",
