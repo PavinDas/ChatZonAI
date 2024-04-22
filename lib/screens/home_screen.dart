@@ -1,5 +1,6 @@
 import 'package:chatzon_ai/constants/consts.dart';
 import 'package:chatzon_ai/constants/global.dart';
+import 'package:chatzon_ai/helper/pref.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -16,6 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
     // TODO: implement initState
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+    Pref.showOnboarding = false;
   }
 
   @override
