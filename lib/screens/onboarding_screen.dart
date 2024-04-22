@@ -4,6 +4,7 @@ import 'package:chatzon_ai/constants/images.dart';
 import 'package:chatzon_ai/models/onboard.dart';
 import 'package:chatzon_ai/screens/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 class OnboardingScreen extends StatelessWidget {
@@ -116,10 +117,8 @@ class OnboardingScreen extends StatelessWidget {
                 ),
                 onPressed: () {
                   if (isLast) {
-                    Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(
-                        builder: (context) => const HomeScreen(),
-                      ),
+                    Get.off(
+                      () => const HomeScreen(),
                     );
                   } else {
                     c.nextPage(

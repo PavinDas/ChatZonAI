@@ -6,6 +6,7 @@ import 'package:chatzon_ai/screens/home_screen.dart';
 import 'package:chatzon_ai/screens/onboarding_screen.dart';
 import 'package:chatzon_ai/widgets/custom_loading.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -25,12 +26,10 @@ class _SplashScreenState extends State<SplashScreen> {
         milliseconds: 2500,
       ),
       () {
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(
-            builder: (context) => Pref.showOnboarding
-                ? const OnboardingScreen()
-                : const HomeScreen(),
-          ),
+        Get.off(
+          () => Pref.showOnboarding
+              ? const OnboardingScreen()
+              : const HomeScreen(),
         );
       },
     );
