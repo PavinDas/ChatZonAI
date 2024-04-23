@@ -1,14 +1,11 @@
-import 'dart:math';
 
 import 'package:chatzon_ai/constants/consts.dart';
 import 'package:chatzon_ai/constants/global.dart';
-import 'package:chatzon_ai/constants/images.dart';
 import 'package:chatzon_ai/helper/pref.dart';
 import 'package:chatzon_ai/models/home_type.dart';
 import 'package:chatzon_ai/widgets/home_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:lottie/lottie.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

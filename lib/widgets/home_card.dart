@@ -4,6 +4,7 @@ import 'package:chatzon_ai/constants/global.dart';
 import 'package:chatzon_ai/constants/images.dart';
 import 'package:chatzon_ai/models/home_type.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:lottie/lottie.dart';
 
 class HomeCard extends StatelessWidget {
@@ -14,20 +15,23 @@ class HomeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     //* Initializing device size
     mq = MediaQuery.sizeOf(context);
+    Animate.restartOnHotReload = true;
 
     //! Card
     return Card(
       color: bgColor,
       elevation: 0,
       margin: EdgeInsets.only(
-        bottom: mq.height * .02,
+        bottom: mq.height * .005,
+        top: mq.height * .005,
       ),
       child: homeType.leftAlign
           ? Row(
               children: [
                 //* Card image
-                Container(
-                  width: mq.width * .35,
+                SizedBox(
+                  width: mq.width * .4,
+                  height: mq.width * .6,
                   child: Padding(
                     padding: homeType.padding,
                     child: Lottie.asset(
@@ -67,8 +71,9 @@ class HomeCard extends StatelessWidget {
                   ),
                 ),
                 //* Card image
-                Container(
-                  width: mq.width * .35,
+                SizedBox(
+                  width: mq.width * .4,
+                  height: mq.width * .6,
                   child: Padding(
                     padding: homeType.padding,
                     child: Lottie.asset(
@@ -80,6 +85,9 @@ class HomeCard extends StatelessWidget {
                 const Spacer(),
               ],
             ),
-    );
+    ).animate().fade(
+          duration: 1500.milliseconds,
+          curve: Curves.easeIn
+        );
   }
 }

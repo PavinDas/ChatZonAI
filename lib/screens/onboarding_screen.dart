@@ -56,6 +56,7 @@ class OnboardingScreen extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 20,
                   fontFamily: bold,
+                  color: whiteColor,
                 ),
               ),
 
@@ -70,7 +71,7 @@ class OnboardingScreen extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 16,
                   fontFamily: regular,
-                  color: greyColor,
+                  color: textColor,
                 ),
                 textAlign: TextAlign.center,
               ),
