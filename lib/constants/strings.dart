@@ -78,6 +78,9 @@ const appName = "ChatZon AI",
     pageDoesntExist = "Page doesn't exist",
 
     //! Chat Strings
+    aiChatBot = "AI Chat Bot",
+    aiImageGen = "AI Image Generator",
+    langtranslator = "Language Translator",
     askAnything = "Ask me Anything",
     imgToReality = "Imagination to Reality",
     imgAnything = "Just imagine anything & let me know, I will create something wonderful for you",

@@ -1,8 +1,14 @@
+import 'dart:math';
+
 import 'package:chatzon_ai/constants/consts.dart';
 import 'package:chatzon_ai/constants/global.dart';
+import 'package:chatzon_ai/constants/images.dart';
 import 'package:chatzon_ai/helper/pref.dart';
+import 'package:chatzon_ai/models/home_type.dart';
+import 'package:chatzon_ai/widgets/home_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:lottie/lottie.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -25,9 +31,49 @@ class _HomeScreenState extends State<HomeScreen> {
     //* Initializing device size
     mq = MediaQuery.sizeOf(context);
 
-    return const Scaffold(
-      body: Center(
-        child: Text(welcomToApp),
+    return Scaffold(
+      backgroundColor: mainColor,
+      //! AppBar
+      appBar: AppBar(
+        backgroundColor: bgColor,
+        elevation: 1,
+        centerTitle: true,
+        title: const Text(
+          appName,
+          style: TextStyle(
+            color: whiteColor,
+            fontFamily: bold,
+            fontSize: 25,
+          ),
+        ),
+        actions: [
+          IconButton(
+            padding: const EdgeInsets.only(
+              right: 20,
+              bottom: 3,
+            ),
+            onPressed: () {},
+            icon: const Icon(
+              Icons.brightness_4_rounded,
+              color: whiteColor,
+              size: 26,
+            ),
+          ),
+        ],
+      ),
+      //! Body
+      body: ListView(
+        padding: EdgeInsets.symmetric(
+          horizontal: mq.width * .018,
+          vertical: mq.height * .015,
+        ),
+        children: HomeType.values
+            .map(
+              (e) => HomeCard(
+                homeType: e,
+              ),
+            )
+            .toList(),
       ),
     );
   }

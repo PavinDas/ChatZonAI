@@ -41,6 +41,7 @@ class _SplashScreenState extends State<SplashScreen> {
     mq = MediaQuery.sizeOf(context);
 
     return Scaffold(
+      backgroundColor: mainColor,
       //! Body
       body: SizedBox(
         width: double.maxFinite,
@@ -54,13 +55,14 @@ class _SplashScreenState extends State<SplashScreen> {
               style: TextStyle(
                 fontFamily: bold,
                 fontSize: 35,
-                color: blackColor,
+                color: whiteColor,
               ),
             ),
 
             //* App logo
             const Spacer(),
             Card(
+              color: mainColor,
               elevation: 0,
               child: Image.asset(
                 icon,
