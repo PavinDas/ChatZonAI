@@ -76,6 +76,8 @@ const appName = "ChatZon AI",
     yourFavoriteIsEmpty = "Your Favorites is Empty",
     account = "Account",
     pageDoesntExist = "Page doesn't exist",
+    somethingWentWrong = "Something went wrong",
+    tryAgainLater = "Try Again later",
 
     //! Chat Strings
     aiChatBot = "AI Chat Bot",
@@ -84,6 +86,7 @@ const appName = "ChatZon AI",
     asMekAnything = "Ask me Anything",
     askMeAnythingYouWant = "Ask me anything you want . . .",
     imgToReality = "Imagination to Reality",
-    imgAnything = "Just imagine anything & let me know, I will create something wonderful for you",
+    imgAnything =
+        "Just imagine anything & let me know, I will create something wonderful for you",
     askMeFrnd =
         "I can be your best friend & You can ask me anything \nI will help you!";

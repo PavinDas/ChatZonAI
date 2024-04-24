@@ -4,6 +4,7 @@ import 'package:chatzon_ai/constants/global.dart';
 import 'package:chatzon_ai/constants/images.dart';
 import 'package:chatzon_ai/models/message.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class MessageCard extends StatelessWidget {
   final Message message;
@@ -54,7 +55,9 @@ class MessageCard extends StatelessWidget {
                   message.msg,
                   style: const TextStyle(color: whiteColor, fontFamily: bold),
                 ),
-              ),
+              )
+                  .animate()
+                  .fade(duration: 1000.milliseconds, curve: Curves.easeIn),
             ],
           )
         :
@@ -85,10 +88,12 @@ class MessageCard extends StatelessWidget {
                   ),
                 ),
                 child: Text(
-                  message.msg ,
+                  message.msg,
                   style: const TextStyle(color: whiteColor, fontFamily: bold),
                 ),
-              ),
+              )
+                  .animate()
+                  .fade(duration: 1000.milliseconds, curve: Curves.easeIn),
               const CircleAvatar(
                 backgroundColor: mainColor,
                 radius: 20,

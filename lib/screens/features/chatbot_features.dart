@@ -48,6 +48,7 @@ class _ChatBotFeaturesState extends State<ChatBotFeatures> {
                 decoration: InputDecoration(
                   filled: true,
                   isDense: true,
+                  focusColor: whiteColor,
                   fillColor: bgColor,
                   hintText: askMeAnythingYouWant,
                   hintStyle: TextStyle(
@@ -101,6 +102,7 @@ class _ChatBotFeaturesState extends State<ChatBotFeatures> {
       //! Body
       body: Obx(
         () => ListView(
+          physics: const BouncingScrollPhysics(),
           padding:  EdgeInsets.only(
             top: mq.height * .02,
             bottom: mq.height * .1,
