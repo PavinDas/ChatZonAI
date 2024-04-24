@@ -1,8 +1,9 @@
 import 'package:chatzon_ai/constants/colors.dart';
 import 'package:chatzon_ai/constants/strings.dart';
-import 'package:chatzon_ai/constants/styles.dart';
+import 'package:chatzon_ai/controllers/chat_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 
 class ChatBotFeatures extends StatefulWidget {
   const ChatBotFeatures({super.key});
@@ -12,6 +13,8 @@ class ChatBotFeatures extends StatefulWidget {
 }
 
 class _ChatBotFeaturesState extends State<ChatBotFeatures> {
+  final _c = ChatController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,19 +35,39 @@ class _ChatBotFeaturesState extends State<ChatBotFeatures> {
         ),
         child: Row(
           children: [
-            //* Text Form Field
+            //* Text Form Field & Button
             Expanded(
+              //* Text Form Field
               child: TextFormField(
+                controller: _c.textC,
                 textAlign: TextAlign.center,
-                decoration: const InputDecoration(
+
+                //* Text Form Field Styling
+                decoration: InputDecoration(
+                  filled: true,
                   isDense: true,
+                  fillColor: bgColor,
                   hintText: askMeAnythingYouWant,
-                  hintStyle: TextStyle(color: textColor),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(
-                        30,
-                      ),
+                  hintStyle: TextStyle(
+                    color: whiteColor.withOpacity(
+                      .7,
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(
+                      25.0,
+                    ),
+                    borderSide: const BorderSide(
+                      color: textColor,
+                    ),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(
+                      25.0,
+                    ),
+                    borderSide: const BorderSide(
+                      color: textColor,
+                      width: 2.0,
                     ),
                   ),
                 ),
@@ -54,11 +77,14 @@ class _ChatBotFeaturesState extends State<ChatBotFeatures> {
             const SizedBox(
               width: 10,
             ),
+
+            //* Button
             CircleAvatar(
-              radius: 24,
+              radius: 23,
               backgroundColor: bgColor,
               child: IconButton(
-                onPressed: () {},
+                color: mainColor,
+                onPressed: _c.askQuestion,
                 icon: const Icon(
                   Icons.rocket_launch_rounded,
                   color: whiteColor,
@@ -71,9 +97,9 @@ class _ChatBotFeaturesState extends State<ChatBotFeatures> {
       ),
 
       //! Body
-      body: SafeArea(
-        child: ListView(
-          children: [],
+      body: Obx(
+        () => ListView(
+          children: _c.list.map((element) => Text(element.msg)).toList(),
         ),
       ),
     );
