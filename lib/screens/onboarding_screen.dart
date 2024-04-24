@@ -17,7 +17,7 @@ class OnboardingScreen extends StatelessWidget {
     final list = [
       //* OnboardingScreen 1
       Onboard(
-        title: askAnything,
+        title: asMekAnything,
         subtitle: askMeFrnd,
         lottie: aiChat,
       ),

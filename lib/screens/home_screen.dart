@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
     //* Initializing device size
     mq = MediaQuery.sizeOf(context);
 
-    APIs.getAnswer('Hiii');
+    // APIs.getAnswer('Hiii');
 
     return Scaffold(
       backgroundColor: mainColor,
@@ -56,24 +56,25 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: const Icon(
               Icons.brightness_4_rounded,
               color: whiteColor,
-              size: 26,
             ),
           ),
         ],
       ),
       //! Body
-      body: ListView(
-        padding: EdgeInsets.symmetric(
-          horizontal: mq.width * .018,
-          vertical: mq.height * .015,
+      body: SafeArea(
+        child: ListView(
+          padding: EdgeInsets.symmetric(
+            horizontal: mq.width * .018,
+            vertical: mq.height * .015,
+          ),
+          children: HomeType.values
+              .map(
+                (e) => HomeCard(
+                  homeType: e,
+                ),
+              )
+              .toList(),
         ),
-        children: HomeType.values
-            .map(
-              (e) => HomeCard(
-                homeType: e,
-              ),
-            )
-            .toList(),
       ),
     );
   }

@@ -25,69 +25,70 @@ class HomeCard extends StatelessWidget {
         bottom: mq.height * .005,
         top: mq.height * .005,
       ),
-      child: homeType.leftAlign
-          ? Row(
-              children: [
-                //* Card image
-                SizedBox(
-                  width: mq.width * .4,
-                  height: mq.width * .6,
-                  child: Padding(
-                    padding: homeType.padding,
-                    child: Lottie.asset(
-                      homeType.lottie,
+      child: InkWell(
+        borderRadius: BorderRadius.all(Radius.circular(15)),
+        onTap: homeType.onTap,
+        child: homeType.leftAlign
+            ? Row(
+                children: [
+                  //* Card image
+                  SizedBox(
+                    width: mq.width * .4,
+                    height: mq.width * .6,
+                    child: Padding(
+                      padding: homeType.padding,
+                      child: Lottie.asset(
+                        homeType.lottie,
+                      ),
                     ),
                   ),
-                ),
-                const Spacer(),
+                  const Spacer(),
 
-                //* Card content
-                Text(
-                  homeType.title,
-                  style: TextStyle(
-                    fontSize: mq.width * 0.05,
-                    fontFamily: semibold,
-                    color: whiteColor,
+                  //* Card content
+                  Text(
+                    homeType.title,
+                    style: TextStyle(
+                      fontSize: mq.width * 0.05,
+                      fontFamily: semibold,
+                      color: whiteColor,
+                    ),
                   ),
-                ),
-                const Spacer(
-                    // flex: 1,
-                    ),
-              ],
-            )
-          : Row(
-              children: [
-                const Spacer(
-                    // flex: 1,
-                    ),
+                  const Spacer(
+                      // flex: 1,
+                      ),
+                ],
+              )
+            : Row(
+                children: [
+                  const Spacer(
+                      // flex: 1,
+                      ),
 
-                //* Card content
-                Text(
-                  homeType.title,
-                  style: TextStyle(
-                    fontSize: mq.width * 0.05,
-                    fontFamily: semibold,
-                    color: whiteColor,
-                  ),
-                ),
-                //* Card image
-                SizedBox(
-                  width: mq.width * .4,
-                  height: mq.width * .6,
-                  child: Padding(
-                    padding: homeType.padding,
-                    child: Lottie.asset(
-                      homeType.lottie,
+                  //* Card content
+                  Text(
+                    homeType.title,
+                    style: TextStyle(
+                      fontSize: mq.width * 0.05,
+                      fontFamily: semibold,
+                      color: whiteColor,
                     ),
                   ),
-                ),
+                  //* Card image
+                  SizedBox(
+                    width: mq.width * .4,
+                    height: mq.width * .6,
+                    child: Padding(
+                      padding: homeType.padding,
+                      child: Lottie.asset(
+                        homeType.lottie,
+                      ),
+                    ),
+                  ),
 
-                const Spacer(),
-              ],
-            ),
-    ).animate().fade(
-          duration: 1500.milliseconds,
-          curve: Curves.easeIn
-        );
+                  const Spacer(),
+                ],
+              ),
+      ),
+    ).animate().fade(duration: 1500.milliseconds, curve: Curves.easeIn);
   }
 }
