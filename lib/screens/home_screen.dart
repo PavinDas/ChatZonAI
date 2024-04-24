@@ -1,4 +1,5 @@
 
+import 'package:chatzon_ai/apis/apis.dart';
 import 'package:chatzon_ai/constants/consts.dart';
 import 'package:chatzon_ai/constants/global.dart';
 import 'package:chatzon_ai/helper/pref.dart';
@@ -27,6 +28,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     //* Initializing device size
     mq = MediaQuery.sizeOf(context);
+
+    APIs.getAnswer('Hiii');
 
     return Scaffold(
       backgroundColor: mainColor,

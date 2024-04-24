@@ -53,6 +53,9 @@ dependencies:
   # For state management
   get: ^4.6.6
 
+  # For API calls
+  http: ^1.2.1
+
 dev_dependencies:
 
   # Encourage good practices
