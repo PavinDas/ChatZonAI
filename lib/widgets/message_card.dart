@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:chatzon_ai/constants/colors.dart';
 import 'package:chatzon_ai/constants/consts.dart';
 import 'package:chatzon_ai/constants/global.dart';
@@ -51,13 +52,39 @@ class MessageCard extends StatelessWidget {
                     bottomRight: r,
                   ),
                 ),
-                child: Text(
-                  message.msg,
-                  style: const TextStyle(color: whiteColor, fontFamily: bold),
-                ),
-              )
-                  .animate()
-                  .fade(duration: 1000.milliseconds, curve: Curves.easeIn),
+                // child: Text(
+                //   message.msg,
+                //   style: const TextStyle(color: whiteColor, fontFamily: bold),
+                // ),
+                child: message.msg.isEmpty
+                    ? AnimatedTextKit(
+                        animatedTexts: [
+                          TypewriterAnimatedText(
+                            'Please wait...🤓',
+                            textStyle: const TextStyle(
+                                fontSize: 14.0,
+                                fontFamily: bold,
+                                color: whiteColor),
+                            speed: const Duration(milliseconds: 50),
+                          ),
+                        ],
+                        repeatForever: true,
+                      )
+                    : AnimatedTextKit(
+                        animatedTexts: [
+                          TypewriterAnimatedText(
+                            message.msg,
+                            textStyle: const TextStyle(
+                                fontSize: 14.0,
+                                fontFamily: bold,
+                                color: whiteColor),
+                            speed: const Duration(milliseconds: 50),
+                          ),
+                        ],
+                        totalRepeatCount: 4,
+                        pause: const Duration(days: 1),
+                      ),
+              ),
             ],
           )
         :
@@ -91,9 +118,7 @@ class MessageCard extends StatelessWidget {
                   message.msg,
                   style: const TextStyle(color: whiteColor, fontFamily: bold),
                 ),
-              )
-                  .animate()
-                  .fade(duration: 1000.milliseconds, curve: Curves.easeIn),
+              ),
               const CircleAvatar(
                 backgroundColor: mainColor,
                 radius: 20,

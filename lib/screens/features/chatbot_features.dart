@@ -103,7 +103,8 @@ class _ChatBotFeaturesState extends State<ChatBotFeatures> {
       body: Obx(
         () => ListView(
           physics: const BouncingScrollPhysics(),
-          padding:  EdgeInsets.only(
+          controller: _c.scrollC,
+          padding: EdgeInsets.only(
             top: mq.height * .02,
             bottom: mq.height * .1,
           ),

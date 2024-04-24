@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 class ChatController extends GetxController {
   final textC = TextEditingController();
+  final scrollC = ScrollController();
 
   final list = <Message>[
     Message(
@@ -17,7 +18,7 @@ class ChatController extends GetxController {
     if (textC.text.trim().isNotEmpty) {
       //* User
       list.add(Message(msg: textC.text, msgType: MessageType.user));
-      list.add(Message(msg: 'Hmm....🤔', msgType: MessageType.bot));
+      list.add(Message(msg: '', msgType: MessageType.bot));
 
       final res = await APIs.getAnswer(textC.text);
 
@@ -26,7 +27,14 @@ class ChatController extends GetxController {
       list.add(Message(msg: res, msgType: MessageType.bot));
 
       textC.text = '';
+      _scrollDown();
     }
     textC.clear();
+  }
+
+  //* Automatically scroll to last message
+  void _scrollDown() {
+    scrollC.animateTo(scrollC.position.maxScrollExtent,
+        duration: const Duration(milliseconds: 500), curve: Curves.ease);
   }
 }

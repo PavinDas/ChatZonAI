@@ -45,10 +45,9 @@ dependencies:
   icons_launcher: ^2.1.7
 
   # For custom animations
-  flutter_animate: ^4.5.0
-
-  # For Animated elements
   lottie: ^3.1.0
+  flutter_animate: ^4.5.0
+  animated_text_kit: ^4.2.2
 
   # For state management
   get: ^4.6.6
