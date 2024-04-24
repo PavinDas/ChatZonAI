@@ -1,6 +1,8 @@
 import 'package:chatzon_ai/constants/colors.dart';
+import 'package:chatzon_ai/constants/global.dart';
 import 'package:chatzon_ai/constants/strings.dart';
 import 'package:chatzon_ai/controllers/chat_controller.dart';
+import 'package:chatzon_ai/widgets/message_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
@@ -99,7 +101,12 @@ class _ChatBotFeaturesState extends State<ChatBotFeatures> {
       //! Body
       body: Obx(
         () => ListView(
-          children: _c.list.map((element) => Text(element.msg)).toList(),
+          padding:  EdgeInsets.only(
+            top: mq.height * .02,
+            bottom: mq.height * .1,
+          ),
+          children:
+              _c.list.map((element) => MessageCard(message: element)).toList(),
         ),
       ),
     );
