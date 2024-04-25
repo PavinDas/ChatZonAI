@@ -44,6 +44,13 @@ class MessageCard extends StatelessWidget {
                   horizontal: mq.width * .02,
                 ),
                 decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 2,
+                      color: blackColor.withOpacity(.1),
+                      offset: const Offset(1, 3),
+                    ),
+                  ],
                   color: secColor,
                   border: Border.all(color: secColor),
                   borderRadius: const BorderRadius.only(
@@ -106,6 +113,13 @@ class MessageCard extends StatelessWidget {
                   horizontal: mq.width * .02,
                 ),
                 decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 2,
+                      color: blackColor.withOpacity(.1),
+                      offset: const Offset(1, 3),
+                    ),
+                  ],
                   color: bgColor,
                   border: Border.all(color: secColor),
                   borderRadius: const BorderRadius.only(

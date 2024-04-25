@@ -62,6 +62,9 @@ dependencies:
   # For Saving Images to Gallery
   gallery_saver_updated: ^3.0.0
 
+  # For Sharing Images
+  share_plus: ^9.0.0
+
 dev_dependencies:
 
   # Encourage good practices

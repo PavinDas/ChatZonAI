@@ -31,6 +31,19 @@ class _ImageFeaturesState extends State<ImageFeatures> {
         title: const Text(
           aiImageGen,
         ),
+        actions: [
+          Obx(
+            () => _c.status.value == Status.complete
+                ? IconButton(
+                    padding: const EdgeInsets.only(right: 10),
+                    onPressed: _c.shareImage,
+                    icon: const Icon(
+                      Icons.share,
+                    ),
+                  )
+                : const SizedBox(),
+          ),
+        ],
       ),
 
       //! Download Button

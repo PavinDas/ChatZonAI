@@ -10,6 +10,7 @@ import 'package:gallery_saver_updated/gallery_saver.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:share_plus/share_plus.dart';
 
 enum Status { none, loading, complete }
 
@@ -62,6 +63,35 @@ class ImageController extends GetxController {
     } catch (e) {
       //? Hide Loading
       Get.back();
+      MyDialog.error('Someting went wrong (try again later)');
+      log('downloadImageE: $e');
+    }
+  }
+
+  void shareImage() async {
+    try {
+      //? Show Loading
+      MyDialog.loading();
+
+      log('url: $url');
+
+      final bytes = (await get(Uri.parse(url))).bodyBytes;
+      final dir = await getTemporaryDirectory();
+      final file = await File('${dir.path}/ai_image.png').writeAsBytes(bytes);
+
+      log('filePath:${file.path}');
+
+      //? Hide Loading
+      Get.back();
+
+      await Share.shareXFiles(
+        [XFile(file.path)],
+        text: 'Image created by ChatZon AI',
+      );
+    } catch (e) {
+      //? Hide Loading
+      Get.back();
+      MyDialog.error('Someting went wrong (try again later)');
       log('downloadImageE: $e');
     }
   }
