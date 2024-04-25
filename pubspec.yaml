@@ -55,6 +55,10 @@ dependencies:
   # For API calls
   http: ^1.2.1
 
+  # For Image Generation
+  dart_openai: ^5.1.0
+  cached_network_image: ^3.3.1
+
 dev_dependencies:
 
   # Encourage good practices

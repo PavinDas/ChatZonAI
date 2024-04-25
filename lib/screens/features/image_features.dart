@@ -1,3 +1,6 @@
+import 'dart:ffi';
+
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chatzon_ai/constants/colors.dart';
 import 'package:chatzon_ai/constants/global.dart';
 import 'package:chatzon_ai/constants/images.dart';
@@ -5,7 +8,9 @@ import 'package:chatzon_ai/constants/strings.dart';
 import 'package:chatzon_ai/constants/styles.dart';
 import 'package:chatzon_ai/controllers/image_controller.dart';
 import 'package:chatzon_ai/widgets/custom_button.dart';
+import 'package:chatzon_ai/widgets/custom_loading.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 class ImageFeatures extends StatefulWidget {
@@ -84,15 +89,14 @@ class _ImageFeaturesState extends State<ImageFeatures> {
             Container(
               height: mq.height * .5,
               alignment: Alignment.center,
-              child: Lottie.asset(
-                aiPlay,
-                height: mq.height * .3,
+              child: Obx(
+                () => _aiImage(),
               ),
             ),
 
             //* Button
             CustomButton(
-              onTap: () {},
+              onTap: _c.createAiImage,
               text: 'Create Image',
             ),
           ],
@@ -100,4 +104,22 @@ class _ImageFeaturesState extends State<ImageFeatures> {
       ),
     );
   }
+
+  Widget _aiImage() => ClipRRect(
+        borderRadius: const BorderRadius.all(
+          Radius.circular(10),
+        ),
+        child: switch (_c.status.value) {
+          Status.none => Lottie.asset(
+              aiPlay,
+              height: mq.height * .3,
+            ),
+          Status.loading => const CustomLoading(),
+          Status.complete => CachedNetworkImage(
+              imageUrl: _c.url,
+              placeholder: (context, url) => const CustomLoading(),
+              errorWidget: (context, url, error) => const SizedBox(),
+            ),
+        },
+      );
 }

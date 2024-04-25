@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:chatzon_ai/apis/api_keys.dart';
 import 'package:chatzon_ai/constants/consts.dart';
-import 'package:chatzon_ai/constants/global.dart';
 import 'package:http/http.dart';
 
 class APIs {
