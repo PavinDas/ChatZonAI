@@ -3,6 +3,7 @@ import 'package:chatzon_ai/constants/global.dart';
 import 'package:chatzon_ai/constants/images.dart';
 import 'package:chatzon_ai/models/onboard.dart';
 import 'package:chatzon_ai/screens/home_screen.dart';
+import 'package:chatzon_ai/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -103,21 +104,8 @@ class OnboardingScreen extends StatelessWidget {
               const Spacer(),
 
               //* Button
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: secColor,
-                  foregroundColor: whiteColor,
-                  elevation: 0,
-                  minimumSize: Size(
-                    mq.width * .4,
-                    50,
-                  ),
-                  textStyle: const TextStyle(
-                    fontSize: 16,
-                    fontFamily: bold,
-                  ),
-                ),
-                onPressed: () {
+              CustomButton(
+                onTap: () {
                   if (isLast) {
                     Get.off(
                       () => const HomeScreen(),
@@ -131,9 +119,7 @@ class OnboardingScreen extends StatelessWidget {
                     );
                   }
                 },
-                child: Text(
-                  isLast ? finish : next,
-                ),
+                text: isLast ? finish : next,
               ),
               SizedBox(
                 height: mq.height * .05,
