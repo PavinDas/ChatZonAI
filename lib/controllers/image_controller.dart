@@ -1,4 +1,5 @@
 import 'package:chatzon_ai/apis/api_keys.dart';
+import 'package:chatzon_ai/helper/my_dialogs.dart';
 import 'package:dart_openai/dart_openai.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,8 +14,8 @@ class ImageController extends GetxController {
   String url = '';
 
   Future<void> createAiImage() async {
-    OpenAI.apiKey = apiKey;
     if (textC.text.trim().isNotEmpty) {
+      OpenAI.apiKey = apiKey;
       status.value = Status.loading;
       OpenAIImageModel image = await OpenAI.instance.image.create(
         prompt: textC.text,
@@ -24,6 +25,10 @@ class ImageController extends GetxController {
       );
       url = image.data[0].url.toString();
       status.value = Status.complete;
+    } else {
+      MyDialog.info(
+        'Provide some beautiful image description',
+      );
     }
   }
 }

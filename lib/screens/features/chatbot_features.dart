@@ -1,4 +1,5 @@
 import 'package:chatzon_ai/constants/colors.dart';
+import 'package:chatzon_ai/constants/consts.dart';
 import 'package:chatzon_ai/constants/global.dart';
 import 'package:chatzon_ai/constants/strings.dart';
 import 'package:chatzon_ai/controllers/chat_controller.dart';
@@ -43,6 +44,10 @@ class _ChatBotFeaturesState extends State<ChatBotFeatures> {
               child: TextFormField(
                 controller: _c.textC,
                 textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: whiteColor,
+                  fontFamily: semibold,
+                ),
 
                 //* Text Form Field Styling
                 decoration: InputDecoration(

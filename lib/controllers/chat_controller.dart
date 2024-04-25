@@ -1,4 +1,5 @@
 import 'package:chatzon_ai/apis/apis.dart';
+import 'package:chatzon_ai/helper/my_dialogs.dart';
 import 'package:chatzon_ai/models/message.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -28,6 +29,8 @@ class ChatController extends GetxController {
 
       textC.text = '';
       _scrollDown();
+    }else{
+      MyDialog.info('Ask Something');
     }
     textC.clear();
   }

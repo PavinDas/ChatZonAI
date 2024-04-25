@@ -46,6 +46,11 @@ class _ImageFeaturesState extends State<ImageFeatures> {
           children: [
             //* Text Form Field
             TextFormField(
+              style: const TextStyle(
+                color: whiteColor,
+                fontFamily: semibold,
+              ),
+              cursorColor: whiteColor,
               controller: _c.textC,
               textAlign: TextAlign.center,
               minLines: 2,
