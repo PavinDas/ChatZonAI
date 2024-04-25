@@ -59,6 +59,9 @@ dependencies:
   dart_openai: ^5.1.0
   cached_network_image: ^3.3.1
 
+  # For Saving Images to Gallery
+  gallery_saver_updated: ^3.0.0
+
 dev_dependencies:
 
   # Encourage good practices

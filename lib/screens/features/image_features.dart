@@ -33,6 +33,27 @@ class _ImageFeaturesState extends State<ImageFeatures> {
         ),
       ),
 
+      //! Download Button
+      floatingActionButton: Obx(
+        () => _c.status.value == Status.complete
+            ? Padding(
+                padding: const EdgeInsets.only(
+                  right: 6,
+                  bottom: 6,
+                ),
+                child: FloatingActionButton(
+                  backgroundColor: secColor,
+                  foregroundColor: whiteColor,
+                  onPressed: _c.downloadImage,
+                  child: const Icon(
+                    Icons.save_alt_rounded,
+                    size: 26,
+                  ),
+                ),
+              )
+            : const SizedBox(),
+      ),
+
       //! Body
       body: SafeArea(
         child: ListView(

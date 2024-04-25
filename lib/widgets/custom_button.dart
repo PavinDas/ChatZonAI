@@ -18,7 +18,6 @@ class CustomButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           backgroundColor: secColor,
           foregroundColor: whiteColor,
-          elevation: 0,
           minimumSize: Size(
             mq.width * .4,
             50,

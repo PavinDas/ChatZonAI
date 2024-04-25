@@ -1,8 +1,15 @@
+import 'dart:developer';
+import 'dart:io';
+
 import 'package:chatzon_ai/apis/api_keys.dart';
+import 'package:chatzon_ai/constants/consts.dart';
 import 'package:chatzon_ai/helper/my_dialogs.dart';
 import 'package:dart_openai/dart_openai.dart';
 import 'package:flutter/material.dart';
+import 'package:gallery_saver_updated/gallery_saver.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart';
+import 'package:path_provider/path_provider.dart';
 
 enum Status { none, loading, complete }
 
@@ -29,6 +36,33 @@ class ImageController extends GetxController {
       MyDialog.info(
         'Provide some beautiful image description',
       );
+    }
+  }
+
+  void downloadImage() async {
+    try {
+      //? Show Loading
+      MyDialog.loading();
+
+      log('url: $url');
+
+      final bytes = (await get(Uri.parse(url))).bodyBytes;
+      final dir = await getTemporaryDirectory();
+      final file = await File('${dir.path}/ai_image.png').writeAsBytes(bytes);
+
+      log('filePath:${file.path}');
+      //* Save image to gallery
+      await GallerySaver.saveImage(file.path, albumName: appName).then(
+        (success) {
+          //? Hide Loading
+          Get.back();
+          MyDialog.success('Image downloaded successfully');
+        },
+      );
+    } catch (e) {
+      //? Hide Loading
+      Get.back();
+      log('downloadImageE: $e');
     }
   }
 }
