@@ -4,8 +4,10 @@ import 'package:chatzon_ai/constants/strings.dart';
 import 'package:chatzon_ai/constants/styles.dart';
 import 'package:chatzon_ai/controllers/translate_controller.dart';
 import 'package:chatzon_ai/widgets/custom_button.dart';
+import 'package:chatzon_ai/widgets/language_sheet.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class TranslatorFeatures extends StatefulWidget {
   const TranslatorFeatures({super.key});
@@ -41,22 +43,33 @@ class _TranslatorFeaturesState extends State<TranslatorFeatures> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 //* From language
-                Container(
-                  height: 50,
-                  width: mq.width * .4,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: textColor,
-                    ),
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(15),
+                InkWell(
+                  borderRadius: const BorderRadius.all(Radius.circular(15)),
+                  onTap: () => Get.bottomSheet(
+                    LanguageSheet(
+                      c: _c,
+                      s: _c.from,
                     ),
                   ),
-                  child: const Text(
-                    'Auto',
-                    style: TextStyle(
-                      color: whiteColor,
+                  child: Container(
+                    height: 50,
+                    width: mq.width * .4,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: textColor,
+                      ),
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(15),
+                      ),
+                    ),
+                    child: Obx(
+                      () => Text(
+                        _c.from.isEmpty ? 'Auto' : _c.from.value,
+                        style: const TextStyle(
+                          color: whiteColor,
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -71,22 +84,33 @@ class _TranslatorFeaturesState extends State<TranslatorFeatures> {
                 ),
 
                 //* To language
-                Container(
-                  height: 50,
-                  width: mq.width * .4,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: textColor,
-                    ),
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(15),
+                InkWell(
+                  borderRadius: const BorderRadius.all(Radius.circular(15)),
+                  onTap: () => Get.bottomSheet(
+                    LanguageSheet(
+                      c: _c,
+                      s: _c.to,
                     ),
                   ),
-                  child: const Text(
-                    'To',
-                    style: TextStyle(
-                      color: whiteColor,
+                  child: Container(
+                    height: 50,
+                    width: mq.width * .4,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: textColor,
+                      ),
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(15),
+                      ),
+                    ),
+                    child: Obx(
+                      () => Text(
+                        _c.to.isEmpty ? 'To' : _c.to.value,
+                        style: const TextStyle(
+                          color: whiteColor,
+                        ),
+                      ),
                     ),
                   ),
                 ),
