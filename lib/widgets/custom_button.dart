@@ -1,6 +1,5 @@
 import 'package:chatzon_ai/constants/colors.dart';
 import 'package:chatzon_ai/constants/global.dart';
-import 'package:chatzon_ai/constants/strings.dart';
 import 'package:chatzon_ai/constants/styles.dart';
 import 'package:flutter/material.dart';
 

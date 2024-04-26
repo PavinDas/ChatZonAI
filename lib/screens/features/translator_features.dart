@@ -1,6 +1,10 @@
 import 'package:chatzon_ai/constants/colors.dart';
+import 'package:chatzon_ai/constants/global.dart';
 import 'package:chatzon_ai/constants/strings.dart';
 import 'package:chatzon_ai/constants/styles.dart';
+import 'package:chatzon_ai/controllers/translate_controller.dart';
+import 'package:chatzon_ai/widgets/custom_button.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TranslatorFeatures extends StatefulWidget {
@@ -11,6 +15,8 @@ class TranslatorFeatures extends StatefulWidget {
 }
 
 class _TranslatorFeaturesState extends State<TranslatorFeatures> {
+  final _c = TranslateController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +31,178 @@ class _TranslatorFeaturesState extends State<TranslatorFeatures> {
       //! Body
       body: SafeArea(
         child: ListView(
-          children: [],
+          physics: const BouncingScrollPhysics(),
+          padding: EdgeInsets.only(
+            top: mq.height * .02,
+            bottom: mq.height * .1,
+          ),
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                //* From language
+                Container(
+                  height: 50,
+                  width: mq.width * .4,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: textColor,
+                    ),
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(15),
+                    ),
+                  ),
+                  child: const Text(
+                    'Auto',
+                    style: TextStyle(
+                      color: whiteColor,
+                    ),
+                  ),
+                ),
+
+                //* Icon
+                IconButton(
+                  icon: const Icon(
+                    CupertinoIcons.repeat,
+                    color: textColor,
+                  ),
+                  onPressed: () {},
+                ),
+
+                //* To language
+                Container(
+                  height: 50,
+                  width: mq.width * .4,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: textColor,
+                    ),
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(15),
+                    ),
+                  ),
+                  child: const Text(
+                    'To',
+                    style: TextStyle(
+                      color: whiteColor,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            //* Text Form Field
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: mq.width * .02,
+                vertical: mq.height * .03,
+              ),
+              child: TextFormField(
+                style: const TextStyle(
+                  color: whiteColor,
+                  fontFamily: semibold,
+                ),
+                cursorColor: whiteColor,
+                controller: _c.textC,
+                textAlign: TextAlign.center,
+                minLines: 5,
+                maxLines: null,
+
+                //* Text Form Field Styling
+                decoration: InputDecoration(
+                  filled: true,
+                  isDense: true,
+                  focusColor: whiteColor,
+                  fillColor: bgColor,
+                  hintText: 'Translate text',
+                  hintStyle: TextStyle(
+                    color: whiteColor.withOpacity(
+                      .7,
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(
+                      10.0,
+                    ),
+                    borderSide: const BorderSide(
+                      color: textColor,
+                    ),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(
+                      10.0,
+                    ),
+                    borderSide: const BorderSide(
+                      color: textColor,
+                      width: 2.0,
+                    ),
+                  ),
+                ),
+                onTapOutside: (event) => FocusScope.of(context).unfocus(),
+              ),
+            ),
+
+            //* Result Text Form Field
+            if (_c.resultC.text.isNotEmpty)
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: mq.width * .02,
+                ),
+                child: TextFormField(
+                  style: const TextStyle(
+                    color: whiteColor,
+                    fontFamily: semibold,
+                  ),
+                  cursorColor: whiteColor,
+                  controller: _c.textC,
+                  textAlign: TextAlign.center,
+                  maxLines: null,
+
+                  //* Text Form Field Styling
+                  decoration: InputDecoration(
+                    filled: true,
+                    isDense: true,
+                    focusColor: whiteColor,
+                    fillColor: bgColor,
+                    hintText: 'Result',
+                    hintStyle: TextStyle(
+                      color: whiteColor.withOpacity(
+                        .7,
+                      ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(
+                        10.0,
+                      ),
+                      borderSide: const BorderSide(
+                        color: textColor,
+                      ),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(
+                        10.0,
+                      ),
+                      borderSide: const BorderSide(
+                        color: textColor,
+                        width: 2.0,
+                      ),
+                    ),
+                  ),
+                  onTapOutside: (event) => FocusScope.of(context).unfocus(),
+                ),
+              ),
+
+            SizedBox(
+              height: mq.height * .04,
+            ),
+
+            //* Button
+            CustomButton(
+              onTap: () {},
+              text: 'Translate',
+            ),
+          ],
         ),
       ),
     );
