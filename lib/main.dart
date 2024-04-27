@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
 
       //! Themes
-      themeMode: ThemeMode.dark,
+      themeMode: Pref.defaultTheme,
 
       //* Dark theme
       darkTheme: ThemeData(
