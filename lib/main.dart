@@ -29,10 +29,36 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
 
       //! Themes
+      themeMode: ThemeMode.dark,
+
+      //* Dark theme
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: secColor.withOpacity(.2),
+        //* AppBar Theme
+        appBarTheme: AppBarTheme(
+          backgroundColor: secColor.withOpacity(.5),
+          foregroundColor: whiteColor,
+          elevation: 1,
+          centerTitle: true,
+          titleTextStyle: const TextStyle(
+            fontFamily: bold,
+            fontSize: 25,
+          ),
+        ),
+        //* Icon Theme
+        iconTheme: const IconThemeData(
+          color: mainColor,
+          size: 26,
+        ),
+      ),
+
+      //* Light theme
       theme: ThemeData(
+        scaffoldBackgroundColor: mainColor,
         //* AppBar Theme
         appBarTheme: const AppBarTheme(
-          backgroundColor: bgColor,
+          backgroundColor: secColor,
           foregroundColor: whiteColor,
           elevation: 1,
           centerTitle: true,
@@ -50,4 +76,11 @@ class MyApp extends StatelessWidget {
       home: const SplashScreen(),
     );
   }
+}
+
+extension AppTheme on ThemeData {
+  Color get lightTextColor =>
+      brightness == Brightness.dark ? Colors.white70 : Colors.black54;
+  Color get buttonColor =>
+      brightness == Brightness.dark ? Colors.white70 : Colors.black54;
 }

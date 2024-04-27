@@ -29,7 +29,7 @@ class _LanguageSheetState extends State<LanguageSheet> {
     return Container(
       height: mq.height * .5,
       decoration: const BoxDecoration(
-        color: mainColor,
+        color: secColor,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(20),
           topRight: Radius.circular(20),
@@ -61,7 +61,7 @@ class _LanguageSheetState extends State<LanguageSheet> {
                 filled: true,
                 isDense: true,
                 focusColor: whiteColor,
-                fillColor: bgColor,
+                fillColor: mainColor,
                 hintText: 'Search Language',
                 hintStyle: TextStyle(
                   fontSize: 14,
@@ -73,16 +73,16 @@ class _LanguageSheetState extends State<LanguageSheet> {
                   borderRadius: BorderRadius.circular(
                     15.0,
                   ),
-                  borderSide: const BorderSide(
-                    color: textColor,
+                  borderSide:  BorderSide(
+                    color: secColor.withOpacity(.5),
                   ),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(
                     15.0,
                   ),
-                  borderSide: const BorderSide(
-                    color: textColor,
+                  borderSide:  BorderSide(
+                    color: secColor.withOpacity(.5),
                     width: 2.0,
                   ),
                 ),

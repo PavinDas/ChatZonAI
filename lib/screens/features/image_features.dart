@@ -24,7 +24,7 @@ class _ImageFeaturesState extends State<ImageFeatures> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: mainColor,
+      // backgroundColor: mainColor,
       //! AppBar
       appBar: AppBar(
         title: const Text(
@@ -94,11 +94,11 @@ class _ImageFeaturesState extends State<ImageFeatures> {
                 filled: true,
                 isDense: true,
                 focusColor: whiteColor,
-                fillColor: bgColor,
+                fillColor: secColor.withOpacity(.5),
                 hintText:
                     'Type here something wonderful\nI will create it for you',
                 hintStyle: TextStyle(
-                  color: whiteColor.withOpacity(
+                  color: tabColor.withOpacity(
                     .7,
                   ),
                 ),
@@ -106,16 +106,16 @@ class _ImageFeaturesState extends State<ImageFeatures> {
                   borderRadius: BorderRadius.circular(
                     10.0,
                   ),
-                  borderSide: const BorderSide(
-                    color: textColor,
+                  borderSide:  BorderSide(
+                    color: secColor.withOpacity(.5),
                   ),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(
                     10.0,
                   ),
-                  borderSide: const BorderSide(
-                    color: textColor,
+                  borderSide:  BorderSide(
+                    color: secColor.withOpacity(.5),
                     width: 2.0,
                   ),
                 ),
@@ -134,6 +134,7 @@ class _ImageFeaturesState extends State<ImageFeatures> {
 
             //* Button
             CustomButton(
+              
               onTap: _c.createAiImage,
               text: 'Create Image',
             ),

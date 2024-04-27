@@ -34,7 +34,7 @@ class OnboardingScreen extends StatelessWidget {
     //* Initializing device size
     mq = MediaQuery.sizeOf(context);
     return Scaffold(
-      backgroundColor: mainColor,
+      // backgroundColor: mainColor,
       //! Body
       body: PageView.builder(
         controller: c,

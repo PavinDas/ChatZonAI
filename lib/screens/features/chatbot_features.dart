@@ -21,7 +21,7 @@ class _ChatBotFeaturesState extends State<ChatBotFeatures> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: mainColor,
+      // backgroundColor: mainColor,
       //! AppBar
       appBar: AppBar(
         title: const Text(
@@ -54,10 +54,10 @@ class _ChatBotFeaturesState extends State<ChatBotFeatures> {
                   filled: true,
                   isDense: true,
                   focusColor: whiteColor,
-                  fillColor: bgColor,
+                  fillColor: secColor.withOpacity(.5),
                   hintText: askMeAnythingYouWant,
                   hintStyle: TextStyle(
-                    color: whiteColor.withOpacity(
+                    color: textColor.withOpacity(
                       .7,
                     ),
                   ),
@@ -65,16 +65,16 @@ class _ChatBotFeaturesState extends State<ChatBotFeatures> {
                     borderRadius: BorderRadius.circular(
                       25.0,
                     ),
-                    borderSide: const BorderSide(
-                      color: textColor,
+                    borderSide:  BorderSide(
+                      color: secColor.withOpacity(.5),
                     ),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(
                       25.0,
                     ),
-                    borderSide: const BorderSide(
-                      color: textColor,
+                    borderSide:  BorderSide(
+                      color: secColor.withOpacity(.5),
                       width: 2.0,
                     ),
                   ),
@@ -88,10 +88,10 @@ class _ChatBotFeaturesState extends State<ChatBotFeatures> {
 
             //* Button
             CircleAvatar(
-              radius: 23,
-              backgroundColor: bgColor,
+              radius: 25,
+              backgroundColor: secColor.withOpacity(.5),
               child: IconButton(
-                color: mainColor,
+                color: secColor,
                 onPressed: _c.askQuestion,
                 icon: const Icon(
                   Icons.rocket_launch_rounded,

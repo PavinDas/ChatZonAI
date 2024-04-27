@@ -1,7 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chatzon_ai/constants/colors.dart';
 import 'package:chatzon_ai/constants/global.dart';
-import 'package:chatzon_ai/constants/images.dart';
 import 'package:chatzon_ai/constants/strings.dart';
 import 'package:chatzon_ai/constants/styles.dart';
 import 'package:chatzon_ai/controllers/image_controller.dart';
@@ -14,7 +12,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:lottie/lottie.dart';
 
 class TranslatorFeatures extends StatefulWidget {
   const TranslatorFeatures({super.key});
@@ -29,7 +26,7 @@ class _TranslatorFeaturesState extends State<TranslatorFeatures> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: mainColor,
+      // backgroundColor: mainColor,
       //! AppBar
       appBar: AppBar(
         title: const Text(
@@ -86,7 +83,9 @@ class _TranslatorFeaturesState extends State<TranslatorFeatures> {
                   icon: Obx(
                     () => Icon(
                       CupertinoIcons.repeat,
-                      color: _c.to.isNotEmpty && _c.from.isNotEmpty ? textColor : textColor.withOpacity(.3),
+                      color: _c.to.isNotEmpty && _c.from.isNotEmpty
+                          ? textColor
+                          : textColor.withOpacity(.3),
                     ),
                   ),
                   onPressed: _c.swapLanguages,
@@ -147,7 +146,7 @@ class _TranslatorFeaturesState extends State<TranslatorFeatures> {
                   filled: true,
                   isDense: true,
                   focusColor: whiteColor,
-                  fillColor: bgColor,
+                  fillColor: secColor.withOpacity(.5),
                   hintText: 'Translate anything you want',
                   hintStyle: TextStyle(
                     color: whiteColor.withOpacity(
@@ -158,16 +157,16 @@ class _TranslatorFeaturesState extends State<TranslatorFeatures> {
                     borderRadius: BorderRadius.circular(
                       10.0,
                     ),
-                    borderSide: const BorderSide(
-                      color: textColor,
+                    borderSide: BorderSide(
+                      color: secColor.withOpacity(.5),
                     ),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(
                       10.0,
                     ),
-                    borderSide: const BorderSide(
-                      color: textColor,
+                    borderSide: BorderSide(
+                      color: secColor.withOpacity(.5),
                       width: 2.0,
                     ),
                   ),
@@ -221,7 +220,7 @@ class _TranslatorFeaturesState extends State<TranslatorFeatures> {
                 filled: true,
                 isDense: true,
                 focusColor: whiteColor,
-                fillColor: bgColor,
+                fillColor: secColor.withOpacity(.5),
                 hintText: 'Result',
                 hintStyle: TextStyle(
                   color: whiteColor.withOpacity(
@@ -232,16 +231,16 @@ class _TranslatorFeaturesState extends State<TranslatorFeatures> {
                   borderRadius: BorderRadius.circular(
                     10.0,
                   ),
-                  borderSide: const BorderSide(
-                    color: textColor,
+                  borderSide: BorderSide(
+                    color: secColor.withOpacity(.5),
                   ),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(
                     10.0,
                   ),
-                  borderSide: const BorderSide(
-                    color: textColor,
+                  borderSide: BorderSide(
+                    color: secColor.withOpacity(.5),
                     width: 2.0,
                   ),
                 ),

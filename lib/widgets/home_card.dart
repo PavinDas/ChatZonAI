@@ -18,7 +18,7 @@ class HomeCard extends StatelessWidget {
 
     //! Card
     return Card(
-      color: bgColor,
+      color: secColor.withOpacity(.5),
       elevation: 0,
       margin: EdgeInsets.only(
         bottom: mq.height * .005,
