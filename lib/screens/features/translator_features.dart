@@ -1,13 +1,20 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chatzon_ai/constants/colors.dart';
 import 'package:chatzon_ai/constants/global.dart';
+import 'package:chatzon_ai/constants/images.dart';
 import 'package:chatzon_ai/constants/strings.dart';
 import 'package:chatzon_ai/constants/styles.dart';
+import 'package:chatzon_ai/controllers/image_controller.dart';
 import 'package:chatzon_ai/controllers/translate_controller.dart';
 import 'package:chatzon_ai/widgets/custom_button.dart';
+import 'package:chatzon_ai/widgets/custom_loading.dart';
 import 'package:chatzon_ai/widgets/language_sheet.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:lottie/lottie.dart';
 
 class TranslatorFeatures extends StatefulWidget {
   const TranslatorFeatures({super.key});
@@ -76,11 +83,13 @@ class _TranslatorFeaturesState extends State<TranslatorFeatures> {
 
                 //* Icon
                 IconButton(
-                  icon: const Icon(
-                    CupertinoIcons.repeat,
-                    color: textColor,
+                  icon: Obx(
+                    () => Icon(
+                      CupertinoIcons.repeat,
+                      color: _c.to.isNotEmpty && _c.from.isNotEmpty ? textColor : textColor.withOpacity(.3),
+                    ),
                   ),
-                  onPressed: () {},
+                  onPressed: _c.swapLanguages,
                 ),
 
                 //* To language
@@ -139,7 +148,7 @@ class _TranslatorFeaturesState extends State<TranslatorFeatures> {
                   isDense: true,
                   focusColor: whiteColor,
                   fillColor: bgColor,
-                  hintText: 'Translate text',
+                  hintText: 'Translate anything you want',
                   hintStyle: TextStyle(
                     color: whiteColor.withOpacity(
                       .7,
@@ -168,54 +177,10 @@ class _TranslatorFeaturesState extends State<TranslatorFeatures> {
             ),
 
             //* Result Text Form Field
-            if (_c.resultC.text.isNotEmpty)
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: mq.width * .02,
-                ),
-                child: TextFormField(
-                  style: const TextStyle(
-                    color: whiteColor,
-                    fontFamily: semibold,
-                  ),
-                  cursorColor: whiteColor,
-                  controller: _c.textC,
-                  textAlign: TextAlign.center,
-                  maxLines: null,
-
-                  //* Text Form Field Styling
-                  decoration: InputDecoration(
-                    filled: true,
-                    isDense: true,
-                    focusColor: whiteColor,
-                    fillColor: bgColor,
-                    hintText: 'Result',
-                    hintStyle: TextStyle(
-                      color: whiteColor.withOpacity(
-                        .7,
-                      ),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(
-                        10.0,
-                      ),
-                      borderSide: const BorderSide(
-                        color: textColor,
-                      ),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(
-                        10.0,
-                      ),
-                      borderSide: const BorderSide(
-                        color: textColor,
-                        width: 2.0,
-                      ),
-                    ),
-                  ),
-                  onTapOutside: (event) => FocusScope.of(context).unfocus(),
-                ),
-              ),
+            // if (_c.resultC.text.isNotEmpty)
+            Obx(
+              () => _translateResult(),
+            ),
 
             SizedBox(
               height: mq.height * .04,
@@ -223,7 +188,7 @@ class _TranslatorFeaturesState extends State<TranslatorFeatures> {
 
             //* Button
             CustomButton(
-              onTap: () {},
+              onTap: _c.translate,
               text: 'Translate',
             ),
           ],
@@ -231,4 +196,58 @@ class _TranslatorFeaturesState extends State<TranslatorFeatures> {
       ),
     );
   }
+
+  Widget _translateResult() => switch (_c.status.value) {
+        Status.none => const SizedBox(),
+        Status.loading => const Align(
+            child: CustomLoading(),
+          ),
+        Status.complete => Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: mq.width * .02,
+            ),
+            child: TextFormField(
+              style: const TextStyle(
+                color: whiteColor,
+                fontFamily: semibold,
+              ),
+              cursorColor: whiteColor,
+              controller: _c.resultC,
+              textAlign: TextAlign.center,
+              maxLines: null,
+              keyboardType: TextInputType.none,
+              //* Text Form Field Styling
+              decoration: InputDecoration(
+                filled: true,
+                isDense: true,
+                focusColor: whiteColor,
+                fillColor: bgColor,
+                hintText: 'Result',
+                hintStyle: TextStyle(
+                  color: whiteColor.withOpacity(
+                    .7,
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(
+                    10.0,
+                  ),
+                  borderSide: const BorderSide(
+                    color: textColor,
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(
+                    10.0,
+                  ),
+                  borderSide: const BorderSide(
+                    color: textColor,
+                    width: 2.0,
+                  ),
+                ),
+              ),
+              // onTapOutside: (event) => FocusScope.of(context).unfocus(),
+            ),
+          ),
+      };
 }

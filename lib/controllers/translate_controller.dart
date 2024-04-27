@@ -1,3 +1,8 @@
+import 'dart:convert';
+import 'dart:developer';
+
+import 'package:chatzon_ai/apis/apis.dart';
+import 'package:chatzon_ai/controllers/image_controller.dart';
 import 'package:chatzon_ai/helper/my_dialogs.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -7,7 +12,8 @@ class TranslateController extends GetxController {
   final resultC = TextEditingController();
 
   final from = ''.obs, to = ''.obs;
-  // list of languages available
+  final status = Status.none.obs;
+  //* list of languages available
   final lang = const [
     "Abkhazian",
     "Afar",
@@ -193,14 +199,37 @@ class TranslateController extends GetxController {
     "Zulu",
   ];
 
-  Future<void> askQuestion() async {
-    if (textC.text.trim().isNotEmpty) {
-      // final res = await APIs.getAnswer(textC.text);
+  Future<void> translate() async {
+    if (textC.text.trim().isNotEmpty && to.isNotEmpty) {
+      status.value = Status.loading;
+      String prompt = '';
 
-      textC.text = '';
+      if (from.isNotEmpty) {
+        prompt =
+            'Can you translate given text from ${from.value} to ${to.value}: \n${textC.text}';
+      } else {
+        prompt = 'Can you translate given text to ${to.value}: \n${textC.text}';
+      }
+
+      log(prompt);
+
+      final res = await APIs.getAnswer(prompt);
+      resultC.text = utf8.decode(res.codeUnits);
+      log('Log Res : $res');
+
+      status.value = Status.complete;
     } else {
-      MyDialog.info('Ask Something');
+      status.value = Status.none;
+      if (to.isEmpty) MyDialog.info('Select To Language!');
+      if (textC.text.isEmpty) MyDialog.info('Type Something to Translate!');
     }
-    textC.clear();
+  }
+
+  swapLanguages() {
+    if (to.isNotEmpty && from.isNotEmpty) {
+      final t = to.value;
+      to.value = from.value;
+      from.value = t;
+    }
   }
 }
