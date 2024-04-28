@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:chatzon_ai/apis/api_keys.dart';
+import 'package:chatzon_ai/apis/apis.dart';
 import 'package:chatzon_ai/constants/consts.dart';
 import 'package:chatzon_ai/helper/my_dialogs.dart';
 import 'package:dart_openai/dart_openai.dart';
@@ -19,7 +20,8 @@ class ImageController extends GetxController {
 
   final status = Status.none.obs;
 
-  String url = '';
+  final url = ''.obs;
+  final imageList = <String>[].obs;
 
   Future<void> createAiImage() async {
     if (textC.text.trim().isNotEmpty) {
@@ -31,7 +33,7 @@ class ImageController extends GetxController {
         size: OpenAIImageSize.size512,
         responseFormat: OpenAIImageResponseFormat.url,
       );
-      url = image.data[0].url.toString();
+      url.value = image.data[0].url.toString();
       status.value = Status.complete;
     } else {
       MyDialog.info(
@@ -47,7 +49,7 @@ class ImageController extends GetxController {
 
       log('url: $url');
 
-      final bytes = (await get(Uri.parse(url))).bodyBytes;
+      final bytes = (await get(Uri.parse(url.value))).bodyBytes;
       final dir = await getTemporaryDirectory();
       final file = await File('${dir.path}/ai_image.png').writeAsBytes(bytes);
 
@@ -75,7 +77,7 @@ class ImageController extends GetxController {
 
       log('url: $url');
 
-      final bytes = (await get(Uri.parse(url))).bodyBytes;
+      final bytes = (await get(Uri.parse(url.value))).bodyBytes;
       final dir = await getTemporaryDirectory();
       final file = await File('${dir.path}/ai_image.png').writeAsBytes(bytes);
 
@@ -93,6 +95,29 @@ class ImageController extends GetxController {
       Get.back();
       MyDialog.error('Someting went wrong (try again later)');
       log('downloadImageE: $e');
+    }
+  }
+
+  Future<void> searchAiImages() async {
+    //* If prompt is not empty
+    if (textC.text.trim().isNotEmpty) {
+      status.value = Status.loading;
+
+      imageList.value = await APIs.searchAiImages(textC.text);
+
+      if (imageList.isEmpty) {
+        MyDialog.error(
+          'Something went wrong (try again later)',
+        );
+        return;
+      }
+
+      url.value = imageList.first;
+      status.value = Status.complete;
+    } else {
+      MyDialog.info(
+        'Provide some beautiful image description',
+      );
     }
   }
 }

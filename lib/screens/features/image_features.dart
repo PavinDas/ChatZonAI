@@ -1,4 +1,3 @@
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chatzon_ai/constants/colors.dart';
 import 'package:chatzon_ai/constants/global.dart';
@@ -106,7 +105,7 @@ class _ImageFeaturesState extends State<ImageFeatures> {
                   borderRadius: BorderRadius.circular(
                     10.0,
                   ),
-                  borderSide:  BorderSide(
+                  borderSide: BorderSide(
                     color: secColor.withOpacity(.5),
                   ),
                 ),
@@ -114,7 +113,7 @@ class _ImageFeaturesState extends State<ImageFeatures> {
                   borderRadius: BorderRadius.circular(
                     10.0,
                   ),
-                  borderSide:  BorderSide(
+                  borderSide: BorderSide(
                     color: secColor.withOpacity(.5),
                     width: 2.0,
                   ),
@@ -126,6 +125,9 @@ class _ImageFeaturesState extends State<ImageFeatures> {
             //* Ai Image
             Container(
               height: mq.height * .5,
+              margin: EdgeInsets.symmetric(
+                vertical: mq.height * .015,
+              ),
               alignment: Alignment.center,
               child: Obx(
                 () => _aiImage(),
@@ -134,7 +136,6 @@ class _ImageFeaturesState extends State<ImageFeatures> {
 
             //* Button
             CustomButton(
-              
               onTap: _c.createAiImage,
               text: 'Create Image',
             ),
@@ -155,7 +156,7 @@ class _ImageFeaturesState extends State<ImageFeatures> {
             ),
           Status.loading => const CustomLoading(),
           Status.complete => CachedNetworkImage(
-              imageUrl: _c.url,
+              imageUrl: _c.url.value,
               placeholder: (context, url) => const CustomLoading(),
               errorWidget: (context, url, error) => const SizedBox(),
             ),

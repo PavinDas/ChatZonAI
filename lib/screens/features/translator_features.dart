@@ -187,7 +187,8 @@ class _TranslatorFeaturesState extends State<TranslatorFeatures> {
 
             //* Button
             CustomButton(
-              onTap: _c.translate,
+              onTap: _c.googleTranslate,
+              // onTap: _c.translate,
               text: 'Translate',
             ),
           ],
