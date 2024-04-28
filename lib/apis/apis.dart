@@ -24,7 +24,7 @@ class APIs {
         body: jsonEncode(
           {
             "model": "gpt-3.5-turbo",
-            "max_token": 2000,
+            // "max_token": 1000,
             "temperature": 0,
             "messages": [
               {"role": "user", "content": question},
@@ -33,9 +33,11 @@ class APIs {
         ),
       );
 
+      // log(res.body);
+
       final data = jsonDecode(res.body);
 
-      log('Res: $data');
+      // log('Res: $data');
       log('Res : ${data['choices'][0]['message']['content']}');
       return data['choices'][0]['message']['content'];
     } catch (e) {

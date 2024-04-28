@@ -117,6 +117,7 @@ class _ChatBotFeaturesState extends State<ChatBotFeatures> {
               _c.list.map((element) => MessageCard(message: element)).toList(),
         ),
       ),
+      
     );
   }
 }
