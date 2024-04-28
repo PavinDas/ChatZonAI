@@ -1,3 +1,4 @@
+import 'package:chatzon_ai/apis/app_write.dart';
 import 'package:chatzon_ai/constants/consts.dart';
 import 'package:chatzon_ai/helper/pref.dart';
 import 'package:chatzon_ai/screens/splash_screen.dart';
@@ -10,6 +11,9 @@ Future<void> main() async {
 
   //? For initialize Hive
   Pref.Initialize();
+
+  //? For  initialize AppWrite
+  AppWrite.init();
 
   await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   await SystemChrome.setPreferredOrientations(
