@@ -7,15 +7,14 @@
 
 <b>Some ScreenShots(Actual App Even Looks Better 😃):</b></br><br>
 <kbd>
-<img src="https://github.com/PavinDas/ChatZonAI/blob/master/assets/screenshots/1_d.png" width=30% height=30%/>
-<img src="https://github.com/PavinDas/ChatZonAI/blob/master/assets/screenshots/2_d.png" width=30% height=30%/>
-<img src="https://github.com/PavinDas/ChatZonAI/blob/master/assets/screenshots/3_d.png" width=30% height=30%/>
-<img src="https://github.com/PavinDas/ChatZonAI/blob/master/assets/screenshots/4_d.png" width=30% height=30%/>
-<img src="https://github.com/PavinDas/ChatZonAI/blob/master/assets/screenshots/5_l.png" width=30% height=30%/>
-<img src="https://github.com/PavinDas/ChatZonAI/blob/master/assets/screenshots/5_d.png" width=30% height=30%/>
-<img src="https://github.com/PavinDas/ChatZonAI/blob/master/assets/screenshots/6_d.png" width=30% height=30%/>
-<img src="https://github.com/PavinDas/ChatZonAI/blob/master/assets/screenshots/7_d.png" width=30% height=30%/>
-<img src="https://github.com/PavinDas/ChatZonAI/blob/master/assets/screenshots/6_d.png" width=30% height=30%/>
+<img src="https://github.com/PavinDas/ChatZonAI/blob/master/assets/screenshots/1.png" width=30% height=30%/>
+<img src="https://github.com/PavinDas/ChatZonAI/blob/master/assets/screenshots/2.png" width=30% height=30%/>
+<img src="https://github.com/PavinDas/ChatZonAI/blob/master/assets/screenshots/3.png" width=30% height=30%/>
+<img src="https://github.com/PavinDas/ChatZonAI/blob/master/assets/screenshots/4.png" width=30% height=30%/>
+<img src="https://github.com/PavinDas/ChatZonAI/blob/master/assets/screenshots/5.png" width=30% height=30%/>
+<img src="https://github.com/PavinDas/ChatZonAI/blob/master/assets/screenshots/6.png" width=30% height=30%/>
+<img src="https://github.com/PavinDas/ChatZonAI/blob/master/assets/screenshots/7.png" width=30% height=30%/>
+<img src="https://github.com/PavinDas/ChatZonAI/blob/master/assets/screenshots/8.png" width=30% height=30%/>
 </kbd>
 <br>
 <br>
