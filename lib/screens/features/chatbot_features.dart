@@ -65,7 +65,7 @@ class _ChatBotFeaturesState extends State<ChatBotFeatures> {
                     borderRadius: BorderRadius.circular(
                       25.0,
                     ),
-                    borderSide:  BorderSide(
+                    borderSide: BorderSide(
                       color: secColor.withOpacity(.5),
                     ),
                   ),
@@ -73,7 +73,7 @@ class _ChatBotFeaturesState extends State<ChatBotFeatures> {
                     borderRadius: BorderRadius.circular(
                       25.0,
                     ),
-                    borderSide:  BorderSide(
+                    borderSide: BorderSide(
                       color: secColor.withOpacity(.5),
                       width: 2.0,
                     ),
@@ -113,11 +113,15 @@ class _ChatBotFeaturesState extends State<ChatBotFeatures> {
             top: mq.height * .02,
             bottom: mq.height * .1,
           ),
-          children:
-              _c.list.map((element) => MessageCard(message: element)).toList(),
+          children: _c.list
+              .map(
+                (element) => MessageCard(
+                  message: element,
+                ),
+              )
+              .toList(),
         ),
       ),
-      
     );
   }
 }

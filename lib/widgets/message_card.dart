@@ -47,7 +47,10 @@ class MessageCard extends StatelessWidget {
                     BoxShadow(
                       blurRadius: 2,
                       color: blackColor.withOpacity(.1),
-                      offset: const Offset(1, 3),
+                      offset: const Offset(
+                        1,
+                        3,
+                      ),
                     ),
                   ],
                   color: secColor,
@@ -58,10 +61,6 @@ class MessageCard extends StatelessWidget {
                     bottomRight: r,
                   ),
                 ),
-                // child: Text(
-                //   message.msg,
-                //   style: const TextStyle(color: whiteColor, fontFamily: bold),
-                // ),
                 child: message.msg.isEmpty
                     ? AnimatedTextKit(
                         animatedTexts: [
@@ -71,7 +70,9 @@ class MessageCard extends StatelessWidget {
                                 fontSize: 14.0,
                                 fontFamily: bold,
                                 color: whiteColor),
-                            speed: const Duration(milliseconds: 50),
+                            speed: const Duration(
+                              milliseconds: 50,
+                            ),
                           ),
                         ],
                         repeatForever: true,
@@ -84,7 +85,9 @@ class MessageCard extends StatelessWidget {
                                 fontSize: 14.0,
                                 fontFamily: bold,
                                 color: whiteColor),
-                            speed: const Duration(milliseconds: 50),
+                            speed: const Duration(
+                              milliseconds: 50,
+                            ),
                           ),
                         ],
                         totalRepeatCount: 4,
@@ -120,7 +123,9 @@ class MessageCard extends StatelessWidget {
                     ),
                   ],
                   color: bgColor,
-                  border: Border.all(color: secColor),
+                  border: Border.all(
+                    color: secColor,
+                  ),
                   borderRadius: const BorderRadius.only(
                     bottomLeft: r,
                     topLeft: r,
@@ -129,7 +134,10 @@ class MessageCard extends StatelessWidget {
                 ),
                 child: Text(
                   message.msg,
-                  style: const TextStyle(color: whiteColor, fontFamily: bold),
+                  style: const TextStyle(
+                    color: whiteColor,
+                    fontFamily: bold,
+                  ),
                 ),
               ),
               const CircleAvatar(
@@ -138,10 +146,6 @@ class MessageCard extends StatelessWidget {
                 backgroundImage: AssetImage(
                   person,
                 ),
-
-                // child: Image.asset(
-                //   person,
-                // ),
               ),
               const SizedBox(
                 width: 10,

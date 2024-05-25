@@ -32,17 +32,11 @@ class APIs {
           },
         ),
       );
-
-      // log(res.body);
-
       final data = jsonDecode(res.body);
-
-      // log('Res: $data');
       log('Res : ${data['choices'][0]['message']['content']}');
       return data['choices'][0]['message']['content'];
     } catch (e) {
       log('getAnswerE: $e');
-
       return '$somethingWentWrong ($tryAgainLater  !)';
     }
   }

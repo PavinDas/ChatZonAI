@@ -29,7 +29,7 @@ class ChatController extends GetxController {
 
       textC.text = '';
       _scrollDown();
-    }else{
+    } else {
       MyDialog.info('Ask Something');
     }
     textC.clear();
@@ -37,7 +37,10 @@ class ChatController extends GetxController {
 
   //* Automatically scroll to last message
   void _scrollDown() {
-    scrollC.animateTo(scrollC.position.maxScrollExtent,
-        duration: const Duration(milliseconds: 500), curve: Curves.ease);
+    scrollC.animateTo(
+      scrollC.position.maxScrollExtent,
+      duration: const Duration(milliseconds: 500),
+      curve: Curves.bounceIn,
+    );
   }
 }
