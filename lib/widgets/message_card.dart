@@ -3,8 +3,11 @@ import 'package:chatzon_ai/constants/colors.dart';
 import 'package:chatzon_ai/constants/consts.dart';
 import 'package:chatzon_ai/constants/global.dart';
 import 'package:chatzon_ai/constants/images.dart';
+import 'package:chatzon_ai/helper/my_dialogs.dart';
 import 'package:chatzon_ai/models/message.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 
 class MessageCard extends StatelessWidget {
   final Message message;
@@ -30,69 +33,80 @@ class MessageCard extends StatelessWidget {
                   icon,
                 ),
               ),
-              Container(
-                constraints: BoxConstraints(
-                  maxWidth: mq.width * .6,
-                ),
-                margin: EdgeInsets.only(
-                  bottom: mq.height * .02,
-                  left: mq.width * .02,
-                ),
-                padding: EdgeInsets.symmetric(
-                  vertical: mq.height * .01,
-                  horizontal: mq.width * .02,
-                ),
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      blurRadius: 2,
-                      color: blackColor.withOpacity(.1),
-                      offset: const Offset(
-                        1,
-                        3,
-                      ),
+              GestureDetector(
+                onLongPress: () async {
+                  await Clipboard.setData(
+                    ClipboardData(text: message.msg),
+                  ).then(
+                    (value) => MyDialog.info(
+                      'Message copied to clipboard',
                     ),
-                  ],
-                  color: secColor,
-                  border: Border.all(color: secColor),
-                  borderRadius: const BorderRadius.only(
-                    topLeft: r,
-                    topRight: r,
-                    bottomRight: r,
+                  );
+                },
+                child: Container(
+                  constraints: BoxConstraints(
+                    maxWidth: mq.width * .6,
                   ),
-                ),
-                child: message.msg.isEmpty
-                    ? AnimatedTextKit(
-                        animatedTexts: [
-                          TypewriterAnimatedText(
-                            'Please wait...🤓',
-                            textStyle: const TextStyle(
-                                fontSize: 14.0,
-                                fontFamily: bold,
-                                color: whiteColor),
-                            speed: const Duration(
-                              milliseconds: 50,
-                            ),
-                          ),
-                        ],
-                        repeatForever: true,
-                      )
-                    : AnimatedTextKit(
-                        animatedTexts: [
-                          TypewriterAnimatedText(
-                            message.msg,
-                            textStyle: const TextStyle(
-                                fontSize: 14.0,
-                                fontFamily: bold,
-                                color: whiteColor),
-                            speed: const Duration(
-                              milliseconds: 50,
-                            ),
-                          ),
-                        ],
-                        totalRepeatCount: 4,
-                        pause: const Duration(days: 1),
+                  margin: EdgeInsets.only(
+                    bottom: mq.height * .02,
+                    left: mq.width * .02,
+                  ),
+                  padding: EdgeInsets.symmetric(
+                    vertical: mq.height * .01,
+                    horizontal: mq.width * .02,
+                  ),
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 2,
+                        color: blackColor.withOpacity(.1),
+                        offset: const Offset(
+                          1,
+                          3,
+                        ),
                       ),
+                    ],
+                    color: secColor,
+                    border: Border.all(color: secColor),
+                    borderRadius: const BorderRadius.only(
+                      topLeft: r,
+                      topRight: r,
+                      bottomRight: r,
+                    ),
+                  ),
+                  child: message.msg.isEmpty
+                      ? AnimatedTextKit(
+                          animatedTexts: [
+                            TypewriterAnimatedText(
+                              'Please wait...🤓',
+                              textStyle: const TextStyle(
+                                  fontSize: 14.0,
+                                  fontFamily: bold,
+                                  color: whiteColor),
+                              speed: const Duration(
+                                milliseconds: 50,
+                              ),
+                            ),
+                          ],
+                          repeatForever: true,
+                        )
+                      : AnimatedTextKit(
+                          animatedTexts: [
+                            TypewriterAnimatedText(
+                              message.msg,
+                              textStyle: const TextStyle(
+                                  fontSize: 14.0,
+                                  fontFamily: bold,
+                                  color: whiteColor),
+                              speed: const Duration(
+                                milliseconds: 50,
+                              ),
+                            ),
+                          ],
+                          totalRepeatCount: 4,
+                          pause: const Duration(days: 1),
+                        ),
+                ),
               ),
             ],
           )
@@ -102,41 +116,52 @@ class MessageCard extends StatelessWidget {
         Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Container(
-                constraints: BoxConstraints(
-                  maxWidth: mq.width * .6,
-                ),
-                margin: EdgeInsets.only(
-                  bottom: mq.height * .02,
-                  right: mq.width * .02,
-                ),
-                padding: EdgeInsets.symmetric(
-                  vertical: mq.height * .01,
-                  horizontal: mq.width * .02,
-                ),
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      blurRadius: 2,
-                      color: blackColor.withOpacity(.1),
-                      offset: const Offset(1, 3),
+              GestureDetector(
+                onLongPress: () async {
+                  await Clipboard.setData(
+                    ClipboardData(text: message.msg),
+                  ).then(
+                    (value) => MyDialog.info(
+                      'Message copied to clipboard',
                     ),
-                  ],
-                  color: bgColor,
-                  border: Border.all(
-                    color: secColor,
+                  );
+                },
+                child: Container(
+                  constraints: BoxConstraints(
+                    maxWidth: mq.width * .6,
                   ),
-                  borderRadius: const BorderRadius.only(
-                    bottomLeft: r,
-                    topLeft: r,
-                    topRight: r,
+                  margin: EdgeInsets.only(
+                    bottom: mq.height * .02,
+                    right: mq.width * .02,
                   ),
-                ),
-                child: Text(
-                  message.msg,
-                  style: const TextStyle(
-                    color: whiteColor,
-                    fontFamily: bold,
+                  padding: EdgeInsets.symmetric(
+                    vertical: mq.height * .01,
+                    horizontal: mq.width * .02,
+                  ),
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 2,
+                        color: blackColor.withOpacity(.1),
+                        offset: const Offset(1, 3),
+                      ),
+                    ],
+                    color: bgColor,
+                    border: Border.all(
+                      color: secColor,
+                    ),
+                    borderRadius: const BorderRadius.only(
+                      bottomLeft: r,
+                      topLeft: r,
+                      topRight: r,
+                    ),
+                  ),
+                  child: Text(
+                    message.msg,
+                    style: const TextStyle(
+                      color: whiteColor,
+                      fontFamily: bold,
+                    ),
                   ),
                 ),
               ),

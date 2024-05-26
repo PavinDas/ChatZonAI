@@ -30,7 +30,7 @@ class ImageController extends GetxController {
       OpenAIImageModel image = await OpenAI.instance.image.create(
         prompt: textC.text,
         n: 1,
-        size: OpenAIImageSize.size512,
+        size: OpenAIImageSize.size1024,
         responseFormat: OpenAIImageResponseFormat.url,
       );
       url.value = image.data[0].url.toString();
