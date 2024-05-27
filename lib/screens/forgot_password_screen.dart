@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:chatzon_ai/constants/colors.dart';
+import 'package:chatzon_ai/constants/consts.dart';
 import 'package:chatzon_ai/widgets/custom_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -82,6 +83,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               'Enter your email address',
               style: TextStyle(
                 fontSize: 20,
+                color: whiteColor,
+                fontFamily: bold
               ),
             ),
 
@@ -106,10 +109,16 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     vertical: 5,
                   ),
                   child: TextField(
+                        style: const TextStyle(
+                          color: whiteColor
+                        ),
                     controller: _emailController,
                     decoration: const InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Email',
+                      hintStyle: TextStyle(
+                        color: textColor,
+                      ),
                     ),
                   ),
                 ),

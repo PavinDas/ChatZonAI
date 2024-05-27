@@ -88,6 +88,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         vertical: 5,
                       ),
                       child: TextField(
+                        style: const TextStyle(
+                          color: whiteColor
+                        ),
                         controller: _emailController,
                         decoration: const InputDecoration(
                             border: InputBorder.none,
@@ -120,6 +123,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         vertical: 5,
                       ),
                       child: TextField(
+                        style: const TextStyle(
+                          color: whiteColor
+                        ),
                         controller: _passwordController,
                         obscureText: _isVisible ? true : false,
                         decoration: InputDecoration(
