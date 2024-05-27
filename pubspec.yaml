@@ -28,52 +28,30 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-
-  # For iOS style icons
+  animated_text_kit: ^4.2.2
+  appwrite: ^12.0.3
+  cached_network_image: ^3.3.1
+  cloud_firestore_odm: ^1.0.0-dev.84
   cupertino_icons: ^1.0.6
+  dart_openai: ^5.1.0
+  firebase_auth: ^4.19.6
+  firebase_core: ^2.31.1
   flutter:
     sdk: flutter
-
-  # For AppWrite Database
-  appwrite: ^12.0.3
-
-  # For local database
-  hive: ^4.0.0-dev.2
-  isar_flutter_libs: ^4.0.0-dev.14
-
-  #For accessing storage path
-  path_provider: ^2.1.3
-
-  # For custom app icon
-  icons_launcher: ^2.1.7
-
-  # For custom animations
-  lottie: ^3.1.0
   flutter_animate: ^4.5.0
-  animated_text_kit: ^4.2.2
-
-  # For state management
+  gallery_saver_updated: ^3.0.0
   get: ^4.6.6
-
-  # For API calls
+  google_fonts: ^6.2.1
+  hive: ^4.0.0-dev.2
   http: ^1.2.1
-
-  # For Image Generation
-  dart_openai: ^5.1.0
-  cached_network_image: ^3.3.1
-
-  # For Google translation
+  icons_launcher: ^2.1.7
+  isar_flutter_libs: ^4.0.0-dev.14
+  lottie: ^3.1.0
+  path_provider: ^2.1.3
+  share_plus: ^9.0.0
   translator_plus: ^1.0.1
 
-  # For Saving Images to Gallery
-  gallery_saver_updated: ^3.0.0
-
-  # For Sharing Images
-  share_plus: ^9.0.0
-
 dev_dependencies:
-
-  # Encourage good practices
   flutter_lints: ^3.0.0
   flutter_test:
     sdk: flutter

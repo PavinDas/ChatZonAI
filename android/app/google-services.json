@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "148051212577",
+    "project_id": "chatzonai",
+    "storage_bucket": "chatzonai.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:148051212577:android:0e68a3e217643bd8d7e660",
+        "android_client_info": {
+          "package_name": "com.example.chatzon_ai"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwME-5sWzmqqSK_7IgtHlCFEZiLdUU3J0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

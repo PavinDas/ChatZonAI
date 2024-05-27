@@ -1,3 +1,4 @@
+import 'package:chatzon_ai/auth/main_screen.dart';
 import 'package:chatzon_ai/constants/consts.dart';
 import 'package:chatzon_ai/constants/global.dart';
 import 'package:chatzon_ai/constants/images.dart';
@@ -108,7 +109,7 @@ class OnboardingScreen extends StatelessWidget {
                 onTap: () {
                   if (isLast) {
                     Get.off(
-                      () => const HomeScreen(),
+                      () => const MainScreen(),
                     );
                   } else {
                     c.nextPage(

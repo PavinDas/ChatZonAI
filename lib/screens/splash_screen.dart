@@ -1,8 +1,8 @@
+import 'package:chatzon_ai/auth/main_screen.dart';
 import 'package:chatzon_ai/constants/consts.dart';
 import 'package:chatzon_ai/constants/global.dart';
 import 'package:chatzon_ai/constants/images.dart';
 import 'package:chatzon_ai/helper/pref.dart';
-import 'package:chatzon_ai/screens/home_screen.dart';
 import 'package:chatzon_ai/screens/onboarding_screen.dart';
 import 'package:chatzon_ai/widgets/custom_loading.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
         Get.off(
           () => Pref.showOnboarding
               ? const OnboardingScreen()
-              : const HomeScreen(),
+              : const MainScreen(),
         );
       },
     );

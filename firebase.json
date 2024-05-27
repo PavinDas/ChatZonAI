@@ -1,0 +1,1 @@
+{"flutter":{"platforms":{"android":{"default":{"projectId":"chatzonai","appId":"1:148051212577:android:0e68a3e217643bd8d7e660","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"chatzonai","configurations":{"android":"1:148051212577:android:0e68a3e217643bd8d7e660","ios":"1:148051212577:ios:cfba026575d8558cd7e660"}}}}}}
