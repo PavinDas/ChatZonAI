@@ -1,4 +1,5 @@
 # ChatZon Ai - Ai Assistant App Flutter
+<img src="https://socialify.git.ci/PavinDas/ChatZonAI/image?description=1&font=Source%20Code%20Pro&forks=1&language=1&logo=https%3A%2F%2Fgithub.com%2FPavinDas%2FChatZonAI%2Fblob%2Fmaster%2Fassets%2Fimages%2Ficon.png&name=1&owner=1&stargazers=1&theme=Dark"/>
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen)
 ![Dart](https://img.shields.io/badge/dart-100%25-brightgreen)
 ![Flutter](https://img.shields.io/badge/Flutter-Cross%20Platform-blue)
