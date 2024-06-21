@@ -3,7 +3,6 @@ import 'package:chatzon_ai/constants/consts.dart';
 import 'package:chatzon_ai/constants/global.dart';
 import 'package:chatzon_ai/constants/images.dart';
 import 'package:chatzon_ai/models/onboard.dart';
-import 'package:chatzon_ai/screens/home_screen.dart';
 import 'package:chatzon_ai/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

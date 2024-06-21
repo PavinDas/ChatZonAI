@@ -3,6 +3,7 @@ import 'package:chatzon_ai/constants/global.dart';
 import 'package:chatzon_ai/helper/pref.dart';
 import 'package:chatzon_ai/models/home_type.dart';
 import 'package:chatzon_ai/widgets/home_card.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -15,7 +16,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final _isDarkMode = Pref.isDarkMode.obs;
+  signout() async {
+    await FirebaseAuth.instance.signOut();
+  }
 
   @override
   void initState() {
@@ -51,21 +54,8 @@ class _HomeScreenState extends State<HomeScreen> {
               right: 20,
               bottom: 3,
             ),
-            onPressed: () {
-              Get.changeThemeMode(
-                _isDarkMode.value ? ThemeMode.light : ThemeMode.dark,
-              );
-              _isDarkMode.value = !_isDarkMode.value;
-              Pref.isDarkMode = _isDarkMode.value;
-            },
-            icon: Obx(
-              () => Icon(
-                _isDarkMode.value
-                    ? Icons.brightness_2_rounded
-                    : Icons.brightness_4_rounded,
-                color: whiteColor,
-              ),
-            ),
+            onPressed: signout,
+            icon: const Icon(Icons.logout_rounded),
           ),
         ],
       ),

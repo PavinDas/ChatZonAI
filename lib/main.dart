@@ -43,30 +43,30 @@ class MyApp extends StatelessWidget {
       title: appName,
       debugShowCheckedModeBanner: false,
 
-      //! Themes
-      themeMode: Pref.defaultTheme,
+      // //! Themes
+      // themeMode: Pref.defaultTheme,
 
-      //* Dark theme
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        scaffoldBackgroundColor: secColor.withOpacity(.2),
-        //* AppBar Theme
-        appBarTheme: AppBarTheme(
-          backgroundColor: secColor.withOpacity(.5),
-          foregroundColor: whiteColor,
-          elevation: 1,
-          centerTitle: true,
-          titleTextStyle: const TextStyle(
-            fontFamily: bold,
-            fontSize: 25,
-          ),
-        ),
-        //* Icon Theme
-        iconTheme: const IconThemeData(
-          color: mainColor,
-          size: 26,
-        ),
-      ),
+      // //* Dark theme
+      // darkTheme: ThemeData(
+      //   brightness: Brightness.dark,
+      //   scaffoldBackgroundColor: secColor.withOpacity(.2),
+      //   //* AppBar Theme
+      //   appBarTheme: AppBarTheme(
+      //     backgroundColor: secColor.withOpacity(.5),
+      //     foregroundColor: whiteColor,
+      //     elevation: 1,
+      //     centerTitle: true,
+      //     titleTextStyle: const TextStyle(
+      //       fontFamily: bold,
+      //       fontSize: 25,
+      //     ),
+      //   ),
+      //   //* Icon Theme
+      //   iconTheme: const IconThemeData(
+      //     color: mainColor,
+      //     size: 26,
+      //   ),
+      // ),
 
       //* Light theme
       theme: ThemeData(

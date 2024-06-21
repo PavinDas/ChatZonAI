@@ -189,21 +189,25 @@ class _LoginScreenState extends State<LoginScreen> {
                   borderRadius: BorderRadius.circular(12),
                   onTap: signIn,
                   child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: 25),
+                    width: double.infinity,
                     decoration: BoxDecoration(
                       color: secColor,
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: const Padding(
                       padding: EdgeInsets.symmetric(
-                        horizontal: 167,
                         vertical: 16,
                       ),
-                      child: Text(
-                        'Sign  In',
-                        style: TextStyle(
-                          color: whiteColor,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Sign  In',
+                          style: TextStyle(
+                            color: whiteColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
                         ),
                       ),
                     ),

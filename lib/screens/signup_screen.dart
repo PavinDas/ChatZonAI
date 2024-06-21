@@ -41,6 +41,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
       'name': name,
       'email': email,
     });
+    // userData(
+    //     _nameController.toString().trim(), _emailController.toString().trim());
   }
 
   bool passwordConfirmed() {
@@ -119,9 +121,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         vertical: 5,
                       ),
                       child: TextField(
-                        style: const TextStyle(
-                          color: whiteColor
-                        ),
+                        style: const TextStyle(color: whiteColor),
                         controller: _nameController,
                         decoration: const InputDecoration(
                           border: InputBorder.none,
@@ -153,9 +153,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         vertical: 5,
                       ),
                       child: TextField(
-                        style: const TextStyle(
-                          color: whiteColor
-                        ),
+                        style: const TextStyle(color: whiteColor),
                         controller: _emailController,
                         decoration: const InputDecoration(
                           border: InputBorder.none,
@@ -187,9 +185,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         vertical: 5,
                       ),
                       child: TextField(
-                        style: const TextStyle(
-                          color: whiteColor
-                        ),
+                        style: const TextStyle(color: whiteColor),
                         controller: _passwordController,
                         obscureText: true,
                         decoration: const InputDecoration(
@@ -222,9 +218,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         vertical: 5,
                       ),
                       child: TextField(
-                        style: const TextStyle(
-                          color: whiteColor
-                        ),
+                        style: const TextStyle(color: whiteColor),
                         controller: _passwordConfirmController,
                         obscureText: _isVisible ? true : false,
                         decoration: InputDecoration(
@@ -257,21 +251,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   borderRadius: BorderRadius.circular(12),
                   onTap: signUp,
                   child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: 25),
+                    width: double.infinity,
                     decoration: BoxDecoration(
                       color: secColor.withOpacity(.5),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: const Padding(
                       padding: EdgeInsets.symmetric(
-                        horizontal: 167,
                         vertical: 16,
                       ),
-                      child: Text(
-                        'Sign Up',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Sign Up',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
                         ),
                       ),
                     ),
@@ -288,9 +286,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     const Text(
                       'Already registered?  ',
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: bgColor
-                      ),
+                          fontWeight: FontWeight.bold, color: bgColor),
                     ),
                     InkWell(
                       onTap: widget.showLoginPage,

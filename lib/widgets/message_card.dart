@@ -75,36 +75,21 @@ class MessageCard extends StatelessWidget {
                     ),
                   ),
                   child: message.msg.isEmpty
-                      ? AnimatedTextKit(
-                          animatedTexts: [
-                            TypewriterAnimatedText(
-                              'Please wait...🤓',
-                              textStyle: const TextStyle(
-                                  fontSize: 14.0,
-                                  fontFamily: bold,
-                                  color: whiteColor),
-                              speed: const Duration(
-                                milliseconds: 50,
-                              ),
-                            ),
-                          ],
-                          repeatForever: true,
+                      ? const Text(
+                          'Please wait...🤓',
+                          style: TextStyle(
+                            fontSize: 14.0,
+                            fontFamily: bold,
+                            color: whiteColor,
+                          ),
                         )
-                      : AnimatedTextKit(
-                          animatedTexts: [
-                            TypewriterAnimatedText(
-                              message.msg,
-                              textStyle: const TextStyle(
-                                  fontSize: 14.0,
-                                  fontFamily: bold,
-                                  color: whiteColor),
-                              speed: const Duration(
-                                milliseconds: 50,
-                              ),
-                            ),
-                          ],
-                          totalRepeatCount: 4,
-                          pause: const Duration(days: 1),
+                      : Text(
+                          message.msg,
+                          style: const TextStyle(
+                            fontSize: 14.0,
+                            fontFamily: bold,
+                            color: whiteColor,
+                          ),
                         ),
                 ),
               ),
