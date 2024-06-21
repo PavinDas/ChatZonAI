@@ -28,11 +28,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
         password: _passwordController.text.trim(),
       );
 
-      //? Add User Details
-      addUserDetails(
-        _emailController.text.trim(),
-        _nameController.text.trim(),
-      );
+      // //? Add User Details
+      // addUserDetails(
+      //   _emailController.text.trim(),
+      //   _nameController.text.trim(),
+      // );
     }
   }
 
